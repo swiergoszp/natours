@@ -4,5 +4,223 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
+Text Gray: #777
 
 */
+
+/* uni reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* global */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+/* ========================================================================================= 
+REUSABLE MODS
+========================================================================================= */
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  position: relative;
+  /* smooths btn "press" */
+  transition: all .2s
+}
+
+.btn:hover {
+  /* raises btn on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  /* gives btn clicked look when clicked */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2); 
+}
+
+/* expand and shrink btn ani */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn:hover::after {
+  /* "blows up" btn */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* visibility */
+  opacity: 0;
+}
+
+/* "discover our tours" header btn */
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* expand and shrink btn ani */
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* btn animation */
+.btn-animated {
+  animation: moveInBottom 1s ease-out 1s backwards;
+}
+
+/* ========================================================================================= 
+HEADER MODS
+========================================================================================= */
+
+/* header ele */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 131, .8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* carves out part of the background img */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+/* logo wrapper */
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+/* wraps centered content */
+.text-box {
+  text-align: center;
+  /* centers box */
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* helps to center text box */
+  transform: translate(-50%, -50%);
+}
+
+/* h1 ele */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  /* animation 'shake' fix */
+  backface-visibility: hidden;
+}
+
+/* "outdoors" span */
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation: moveInLeft 2s ease-out;
+}
+
+/* "is where life happens" span */
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  animation: moveInRight 2s ease-out;
+}
+
+/* ========================================================================================= 
+ANIMATIONS
+========================================================================================= */
+
+/* move in from the left animation */
+@keyframes moveInLeft {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px left on x axis */
+    transform: translateX(-100px);
+  }
+
+  /* ani increment */
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}
+
+/* move in from the right animation */
+@keyframes moveInRight {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px right on x axis */
+    transform: translateX(100px);
+  }
+
+  /* ani increment */
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}
+
+/* move in from the bottom animation */
+@keyframes moveInBottom {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px down */
+    transform: translateY(50px);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}
