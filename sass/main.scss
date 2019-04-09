@@ -1,30 +1,42 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-gray-dark: #777;
+$color-white: #fff;
+
 /* uni reset */
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
+
 
 html {
   /* GLOBAL FONT SIZE */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 /* global */
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
+  color: $color-gray-dark;
   padding: 3rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* ========================================================================================= 
 REUSABLE MODS
 ========================================================================================= */
+
 .btn {
-  /* expand and shrink btn ani */ }
-  .btn:link, .btn:visited {
+  &:link,
+  &:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -33,21 +45,30 @@ REUSABLE MODS
     position: relative;
     font-size: 1.6rem;
     /* smooths btn "press" */
-    transition: all .2s; }
-  .btn:hover {
+    transition: all .2s
+  }
+
+  &:hover {
     /* raises btn on hover */
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+
+    &::after {
       /* "blows up" btn */
       transform: scaleX(1.4) scaleY(1.6);
       /* visibility */
-      opacity: 0; }
-  .btn:active {
+      opacity: 0;
+    }
+  }
+
+  &:active {
     /* gives btn clicked look when clicked */
     transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-  .btn::after {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2); 
+  }
+
+  /* expand and shrink btn ani */
+  &::after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -57,41 +78,55 @@ REUSABLE MODS
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all .4s; }
+    transition: all .4s;
+  }
+}
 
 /* "discover our tours" header btn */
 .btn--white {
-  background-color: #fff;
-  color: #777;
-  /* expand and shrink btn ani */ }
-  .btn--white::after {
-    background-color: #fff; }
+  background-color: $color-white;
+  color: $color-gray-dark;
+
+  /* expand and shrink btn ani */
+  &::after {
+    background-color: $color-white;
+  }
+}
 
 /* btn animation */
 .btn--animated {
-  animation: moveInBottom 1s ease-out 1s backwards; }
+  animation: moveInBottom 1s ease-out 1s backwards;
+}
 
 /* ========================================================================================= 
 HEADER MODS
 ========================================================================================= */
+
 /* header ele */
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+    to right bottom, 
+    rgba($color-primary-light, .8), 
+    rgba($color-primary-dark, .8)), 
+    url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
   /* carves out part of the background img */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
 /* logo wrapper */
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 /* wraps centered content */
 .header__text-box {
@@ -101,15 +136,17 @@ HEADER MODS
   top: 40%;
   left: 50%;
   /* helps to center text box */
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 /* h1 ele */
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   margin-bottom: 6rem;
   /* animation 'shake' fix */
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+}
 
 /* "outdoors" span */
 .heading-primary--main {
@@ -117,7 +154,8 @@ HEADER MODS
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
-  animation: moveInLeft 2s ease-out; }
+  animation: moveInLeft 2s ease-out;
+}
 
 /* "is where life happens" span */
 .heading-primary--sub {
@@ -125,11 +163,13 @@ HEADER MODS
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 2s ease-out; }
+  animation: moveInRight 2s ease-out;
+}
 
 /* ========================================================================================= 
 ANIMATIONS
 ========================================================================================= */
+
 /* move in from the left animation */
 @keyframes moveInLeft {
   /* ani start */
@@ -137,16 +177,22 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px left on x axis */
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem );
+  }
+
   /* ani increment */
   80% {
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   /* ani end */
   100% {
     /* visibile */
     opacity: 1;
     /* returns ele to original placement */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* move in from the right animation */
 @keyframes moveInRight {
@@ -155,16 +201,22 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px right on x axis */
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   /* ani increment */
   80% {
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   /* ani end */
   100% {
     /* visibile */
     opacity: 1;
     /* returns ele to original placement */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* move in from the bottom animation */
 @keyframes moveInBottom {
@@ -173,10 +225,14 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px down */
-    transform: translateY(5rem); }
+    transform: translateY(5rem);
+  }
+
   /* ani end */
   100% {
     /* visibile */
     opacity: 1;
     /* returns ele to original placement */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
