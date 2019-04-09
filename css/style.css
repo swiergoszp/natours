@@ -9,20 +9,28 @@ Text Gray: #777
 */
 
 /* uni reset */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+
+html {
+  /* GLOBAL FONT SIZE */
+  font-size: 62.5%;
 }
 
 /* global */
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 /* ========================================================================================= 
@@ -33,10 +41,11 @@ REUSABLE MODS
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: relative;
+  font-size: 1.6rem;
   /* smooths btn "press" */
   transition: all .2s
 }
@@ -44,13 +53,13 @@ REUSABLE MODS
 .btn:hover {
   /* raises btn on hover */
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
   /* gives btn clicked look when clicked */
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2); 
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2); 
 }
 
 /* expand and shrink btn ani */
@@ -59,7 +68,7 @@ REUSABLE MODS
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -75,18 +84,18 @@ REUSABLE MODS
 }
 
 /* "discover our tours" header btn */
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
 /* expand and shrink btn ani */
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
 /* btn animation */
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 1s ease-out 1s backwards;
 }
 
@@ -106,18 +115,18 @@ HEADER MODS
 }
 
 /* logo wrapper */
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
 }
 
 /* wraps centered content */
-.text-box {
+.header__text-box {
   text-align: center;
   /* centers box */
   position: absolute;
@@ -131,26 +140,26 @@ HEADER MODS
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
   /* animation 'shake' fix */
   backface-visibility: hidden;
 }
 
 /* "outdoors" span */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation: moveInLeft 2s ease-out;
 }
 
 /* "is where life happens" span */
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation: moveInRight 2s ease-out;
 }
 
@@ -165,12 +174,12 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px left on x axis */
-    transform: translateX(-100px);
+    transform: translateX(-10rem );
   }
 
   /* ani increment */
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* ani end */
@@ -189,12 +198,12 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px right on x axis */
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   /* ani increment */
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* ani end */
@@ -213,7 +222,7 @@ ANIMATIONS
     /* invisibile */
     opacity: 0;
     /* starts ele 100px down */
-    transform: translateY(50px);
+    transform: translateY(5rem);
   }
 
   /* ani end */
