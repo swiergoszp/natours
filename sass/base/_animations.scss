@@ -1,0 +1,66 @@
+/* move in from the left animation */
+@keyframes moveInLeft {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px left on x axis */
+    transform: translateX(-10rem );
+  }
+
+  /* ani increment */
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}
+
+/* move in from the right animation */
+@keyframes moveInRight {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px right on x axis */
+    transform: translateX(10rem);
+  }
+
+  /* ani increment */
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}
+
+/* move in from the bottom animation */
+@keyframes moveInBottom {
+  /* ani start */
+  0% {
+    /* invisibile */
+    opacity: 0;
+    /* starts ele 100px down */
+    transform: translateY(5rem);
+  }
+
+  /* ani end */
+  100% {
+    /* visibile */
+    opacity: 1;
+    /* returns ele to original placement */
+    transform: translate(0);
+  }
+}

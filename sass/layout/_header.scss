@@ -1,0 +1,36 @@
+/* header ele */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+    to right bottom, 
+    rgba($color-primary-light, .8), 
+    rgba($color-primary-dark, .8)), 
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* carves out part of the background img */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  /* logo wrapper */
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* wraps centered content */
+  &__text-box {
+    text-align: center;
+    /* centers box */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* helps to center text box */
+    transform: translate(-50%, -50%);
+  }
+}
