@@ -1,4 +1,5 @@
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -9,7 +10,10 @@
     position: relative;
     font-size: $default-font-size;
     /* smooths btn "press" */
-    transition: all .2s
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+
   }
 
   &--white {
@@ -43,7 +47,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     /* gives btn clicked look when clicked */
     transform: translateY(-1px);
     box-shadow: 0 .5rem 1rem rgba($color-black, .2); 
