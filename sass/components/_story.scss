@@ -8,9 +8,15 @@
   padding-left: 9rem;
   font-size: $default-font-size;
   transform: skewX(-12deg);
-  // direct child selector
-  & > * {
-    transform: skewX(12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
   }
 
   &__shape {
@@ -23,6 +29,10 @@
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__image {
@@ -30,6 +40,14 @@
     transform: translateX(-4rem) scale(1.4);
     backface-visibility: hidden;
     transition: all .5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {
